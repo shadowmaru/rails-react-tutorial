@@ -3,6 +3,7 @@
 React.js, Rails and ES6
 
 https://www.airpair.com/reactjs/posts/reactjs-a-guide-for-rails-developers
+
 http://www.tamas.io/react-with-es6/
 
 Ruby 2.2.2
