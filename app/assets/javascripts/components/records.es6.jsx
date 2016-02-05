@@ -17,6 +17,12 @@ class Records extends React.Component {
     this.setState({records: records})
   }
 
+  updateRecord (record, data) {
+    var index = this.state.records.indexOf(record);
+    var records = React.addons.update(this.state.records, { $splice: [[index, 1, data]] });
+    this.replaceState({records: records});
+  }
+
   deleteRecord (record) {
     var index = this.state.records.indexOf(record)
     var records = React.addons.update(this.state.records, { $splice: [[index, 1]] });
@@ -39,7 +45,7 @@ class Records extends React.Component {
 
   render () {
     var recordNodes = this.state.records.map((record) => {
-      return (<Record key={record.id} record={record} handleDeleteRecord={this.deleteRecord.bind(this)} />)
+      return (<Record key={record.id} record={record} handleDeleteRecord={this.deleteRecord.bind(this)} handleEditRecord={this.updateRecord.bind(this)} />)
     });
     return (
       <div className="records">
